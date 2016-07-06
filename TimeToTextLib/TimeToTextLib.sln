@@ -5,7 +5,7 @@ VisualStudioVersion = 14.0.25123.0
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "TimeToTextLib", "TimeToTextLib.csproj", "{539FF51B-1674-4849-85F2-59C752497BFF}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Debug", "..\Debug\Debug.csproj", "{0F2D1291-FA34-4292-8C93-B96E27B7FEC3}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "DebugApp", "..\DebugApp\DebugApp.csproj", "{0F2D1291-FA34-4292-8C93-B96E27B7FEC3}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
