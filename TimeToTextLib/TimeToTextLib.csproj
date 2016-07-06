@@ -39,6 +39,9 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="LanguagePreset.cs" />
+    <Compile Include="Presets\DutchPreset.cs" />
+    <Compile Include="Presets\EnglishPreset.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="TimeToText.cs" />
   </ItemGroup>
