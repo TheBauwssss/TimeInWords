@@ -4,6 +4,8 @@ using System.Linq;
 using System.Text;
 using System.Timers;
 using System.Windows;
+using TextToTimeGridLib;
+using TextToTimeGridLib.Grids;
 using TimeToTextLib;
 
 namespace Debug
@@ -19,6 +21,7 @@ namespace Debug
         }
 
         LanguagePreset.Language lang = LanguagePreset.Language.English;
+        TimeGrid grid = new TimeGridEnglish();
 
         private void Window_Loaded(object sender, RoutedEventArgs e)
         {
@@ -45,6 +48,26 @@ namespace Debug
                     //    val = val.AddHours(1);
                     time.Content = TimeToText.GetSimple(lang, val);
                 }
+
+                var mask = grid.GetBitMask((string)time.Content, (bool)chkForce.IsChecked);
+
+                string[] sGrid = grid.ToString().Split('\n');
+                string[] sMask = mask.ToString().Split('\n');
+                string[] result = grid.ToString(mask).Split('\n');
+
+                var b = new StringBuilder();
+
+                b.AppendLine("Clock grid\tBitmask\t\tResult");
+                b.AppendLine();
+
+                for (int i = 0; i < sGrid.Length; i++)
+                {
+                    string line = sGrid[i].Trim() + "\t" + sMask[i].Trim() + "\t" + result[i].Trim();
+                    b.AppendLine(line);
+                }
+
+                lblGrid.Content = b.ToString();
+
             }));
 
         }
@@ -64,5 +87,25 @@ namespace Debug
             Clipboard.SetText(b.ToString());
         }
 
+        private void comboLanguage_Loaded(object sender, RoutedEventArgs e)
+        {
+            comboLanguage.Items.Add("English");
+            comboLanguage.Items.Add("Nederlands");
+            comboLanguage.SelectedIndex = 0;
+        }
+
+        private void comboLanguage_SelectionChanged(object sender, System.Windows.Controls.SelectionChangedEventArgs e)
+        {
+            if ((string)comboLanguage.SelectedValue == "English")
+            {
+                lang = LanguagePreset.Language.English;
+                grid = new TimeGridEnglish();
+            }
+            else
+            {
+                lang = LanguagePreset.Language.Dutch;
+                grid = new TimeGridDutch();
+            }
+        }
     }
 }

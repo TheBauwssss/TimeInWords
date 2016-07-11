@@ -8,11 +8,17 @@
         mc:Ignorable="d"
         Title="MainWindow" Height="364.531" Width="790.343" Loaded="Window_Loaded">
     <Grid>
-        <Label x:Name="time" Content="HET IS" HorizontalAlignment="Left" Margin="10,10,0,0" VerticalAlignment="Top" Height="95" Width="764" FontSize="48"/>
-        <CheckBox x:Name="checkBox" Content="override" HorizontalAlignment="Left" Margin="10,306,0,0" VerticalAlignment="Top"/>
-
-        <xctk:TimePicker x:Name="timePicker" HorizontalAlignment="Left" Margin="88,306,0,0" VerticalAlignment="Top" Width="90"/>
-        <Button x:Name="button" Content="Button" HorizontalAlignment="Left" Margin="107,157,0,0" VerticalAlignment="Top" Width="75" Click="button_Click"/>
+        <Label x:Name="time" Content="HET IS" Margin="10,230,10,10" VerticalAlignment="Bottom" Height="95" Width="764" FontSize="48"/>
+        <GroupBox x:Name="groupBox" Header="Settings &amp; Tools" HorizontalAlignment="Left" Margin="10,10,0,0" VerticalAlignment="Top" Height="148" Width="316">
+            <Grid Margin="0">
+                <Button x:Name="button" Content="Export all possible values to clipboard" Margin="10,10,10,0" VerticalAlignment="Top" Click="button_Click"/>
+                <ComboBox x:Name="comboLanguage" Margin="77,40,10,0" VerticalAlignment="Top" Loaded="comboLanguage_Loaded" Height="26" SelectionChanged="comboLanguage_SelectionChanged"/>
+                <Label x:Name="label" Content="Language" HorizontalAlignment="Left" Margin="10,40,0,0" VerticalAlignment="Top"/>
+                <CheckBox x:Name="checkBox" Content="Automagically advance the time every second" Margin="10,75,10,0" VerticalAlignment="Top"/>
+                <CheckBox x:Name="chkForce" Content="Force matches to whole words only" Margin="10,95,10,0" VerticalAlignment="Top" IsChecked="True"/>
+            </Grid>
+        </GroupBox>
+        <Label x:Name="lblGrid" Content="Label" Margin="331,10,10,110.2" FontFamily="Consolas"/>
 
     </Grid>
 </Window>
