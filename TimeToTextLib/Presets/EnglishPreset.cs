@@ -33,7 +33,7 @@ namespace TimeToTextLib.Presets
             switch (minute)
             {
                 case 0:
-                    s.Append(Hour(hour) + " O'CLOCK");
+                    s.Append(Hour(hour) + " OCLOCK");
                     break;
                 case 5:
                     s.Append(Numbers[4] + " PAST " + Hour(hour));
